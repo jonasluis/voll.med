@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @Embeddable
 public class Endereco {
-    @NotBlank
     private String logradouro;
     private String numero;
     private String complemento;
