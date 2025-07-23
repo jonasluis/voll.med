@@ -1,11 +1,12 @@
 package med.voll.voll.medico.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.*;
 
 import med.voll.voll.endereco.Endereco;
-import med.voll.voll.medico.dto.MedicoRequest;
-import med.voll.voll.medico.dto.MedicoResponse;
+import med.voll.voll.medico.dto.MedicoCadastro;
+import med.voll.voll.medico.dto.MedicoUpdate;
 import med.voll.voll.medico.model.enums.Especialidade;
 
 @AllArgsConstructor
@@ -27,12 +28,31 @@ public class MedicoEntity {
     @Embedded
     private Endereco endereco;
 
-    public MedicoEntity(MedicoRequest medicoRequest) {
-        this.nome = medicoRequest.nome();
-        this.email = medicoRequest.email();
-        this.telefone = medicoRequest.telefone();
-        this.crm = medicoRequest.crm();
-        this.especialidade = medicoRequest.especialidade();
-        this.endereco = new Endereco(medicoRequest.endereco());
+    private Boolean ativo;
+
+    public MedicoEntity(MedicoCadastro medicoCadastro) {
+        this.ativo = true;
+        this.nome = medicoCadastro.nome();
+        this.email = medicoCadastro.email();
+        this.telefone = medicoCadastro.telefone();
+        this.crm = medicoCadastro.crm();
+        this.especialidade = medicoCadastro.especialidade();
+        this.endereco = new Endereco(medicoCadastro.endereco());
+    }
+
+    public void atualizarInformacoes(@Valid MedicoUpdate medicoUpdate) {
+        if (medicoUpdate.nome() != null){
+            this.nome = medicoUpdate.nome();
+        }
+        if (medicoUpdate.telefone() != null){
+        this.telefone = medicoUpdate.telefone();
+        }
+        if (medicoUpdate.endereco() != null){
+            this.endereco.atualizarEndereco(medicoUpdate.endereco());
+        }
+    }
+
+    public void excluir() {
+        this.ativo = false;
     }
 }
