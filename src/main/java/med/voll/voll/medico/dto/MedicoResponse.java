@@ -5,7 +5,7 @@ import med.voll.voll.endereco.Endereco;
 import med.voll.voll.medico.model.MedicoEntity;
 import med.voll.voll.medico.model.enums.Especialidade;
 
-public record MedicoUpdateResponse(
+public record MedicoResponse(
         Long id,
         String nome,
         String email,
@@ -14,7 +14,7 @@ public record MedicoUpdateResponse(
         Especialidade especialidade,
         Endereco endereco
 ) {
-    public MedicoUpdateResponse(MedicoEntity medicoEntity) {
+    public MedicoResponse(MedicoEntity medicoEntity) {
         this(
         medicoEntity.getId(),
         medicoEntity.getNome(),

@@ -4,7 +4,7 @@ import jakarta.validation.Valid;
 import med.voll.voll.medico.dto.MedicoCadastro;
 import med.voll.voll.medico.dto.MedicoListagem;
 import med.voll.voll.medico.dto.MedicoUpdate;
-import med.voll.voll.medico.dto.MedicoUpdateResponse;
+import med.voll.voll.medico.dto.MedicoResponse;
 import med.voll.voll.medico.model.MedicoEntity;
 import med.voll.voll.medico.repositories.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class MedicoController {
 
         var uri = uriBuilder.path("/medicos/{id}").buildAndExpand(medico.getId()).toUri();
 
-        return ResponseEntity.created(uri).body(new MedicoUpdateResponse(medico));
+        return ResponseEntity.created(uri).body(new MedicoResponse(medico));
     }
 
     @GetMapping
@@ -45,7 +45,7 @@ public class MedicoController {
     public ResponseEntity atualizar(@RequestBody @Valid MedicoUpdate medicoUpdate) {
         var medico = medicoRepository.getReferenceById(medicoUpdate.id());
         medico.atualizarInformacoes(medicoUpdate);
-        return ResponseEntity.ok(new MedicoUpdateResponse(medico));
+        return ResponseEntity.ok(new MedicoResponse(medico));
     }
 
     @DeleteMapping("/{id}")
@@ -59,7 +59,7 @@ public class MedicoController {
     public ResponseEntity detalhar(@PathVariable Long id){
         var medico = medicoRepository.getReferenceById(id);
 
-        return ResponseEntity.ok(new MedicoUpdateResponse(medico));
+        return ResponseEntity.ok(new MedicoResponse(medico));
     }
 
 }
