@@ -1,8 +1,4 @@
-package med.voll.voll.paciente.dto;
-
-import med.voll.voll.medico.model.MedicoEntity;
-import med.voll.voll.medico.model.enums.Especialidade;
-import med.voll.voll.paciente.model.PacienteEntity;
+package med.voll.api.domain.paciente;
 
 public record PacienteListagem(
         Long id,

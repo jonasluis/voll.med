@@ -1,13 +1,10 @@
-package med.voll.voll.medico.model;
+package med.voll.api.domain.medico;
 
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.*;
 
-import med.voll.voll.endereco.Endereco;
-import med.voll.voll.medico.dto.MedicoCadastro;
-import med.voll.voll.medico.dto.MedicoUpdate;
-import med.voll.voll.medico.model.enums.Especialidade;
+import med.voll.api.domain.endereco.Endereco;
 
 @AllArgsConstructor
 @NoArgsConstructor

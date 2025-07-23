@@ -1,9 +1,7 @@
-package med.voll.voll.medico.dto;
+package med.voll.api.domain.medico;
 
 
-import med.voll.voll.endereco.Endereco;
-import med.voll.voll.medico.model.MedicoEntity;
-import med.voll.voll.medico.model.enums.Especialidade;
+import med.voll.api.domain.endereco.Endereco;
 
 public record MedicoResponse(
         Long id,

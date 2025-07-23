@@ -1,7 +1,6 @@
-package med.voll.voll.endereco;
+package med.voll.api.domain.endereco;
 
 import jakarta.persistence.Embeddable;
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
