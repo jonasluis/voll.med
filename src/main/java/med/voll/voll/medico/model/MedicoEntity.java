@@ -5,6 +5,7 @@ import lombok.*;
 
 import med.voll.voll.endereco.Endereco;
 import med.voll.voll.medico.dto.MedicoRequest;
+import med.voll.voll.medico.dto.MedicoResponse;
 import med.voll.voll.medico.model.enums.Especialidade;
 
 @AllArgsConstructor
