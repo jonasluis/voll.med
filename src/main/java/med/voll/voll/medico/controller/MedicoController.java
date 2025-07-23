@@ -31,7 +31,7 @@ public class MedicoController {
         return medicoRepository.findAllByAtivoTrue(pageable).map(MedicoListagem::new);
     }
 
-    @PutMapping()
+    @PutMapping
     @Transactional
     public void atualizar(@RequestBody @Valid MedicoUpdate medicoUpdate) {
         var medico = medicoRepository.getReferenceById(medicoUpdate.id());
