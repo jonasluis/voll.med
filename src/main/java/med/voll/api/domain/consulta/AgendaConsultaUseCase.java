@@ -30,7 +30,7 @@ public class AgendaConsultaUseCase {
 
         var paciente = pacienteRepository.getReferenceById(dto.idPaciente());
         var medico = escolherMedico(dto);
-        var consulta = new ConsultaEntity(null, medico, paciente, dto.data());
+        var consulta = new ConsultaEntity(null, medico, paciente, dto.data(), null);
         consultaRepository.save(consulta);
     }
 
