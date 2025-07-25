@@ -8,4 +8,7 @@ public record AgendamentoConsultaResponse(
         Long idPaciente,
         LocalDateTime data
         ) {
+    public AgendamentoConsultaResponse(ConsultaEntity consulta) {
+        this(consulta.getId(), consulta.getMedico().getId(), consulta.getPaciente().getId(), consulta.getData());
+    }
 }
