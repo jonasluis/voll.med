@@ -13,8 +13,8 @@ public class SwaggerConfig {
     @Bean
     public OpenAPI openAPI() {
         return new OpenAPI()
-                .info(new Info().title("Voll API")
-                        .description("API Responsavel por Cadastrar pacientes e medicos alem de agendamentos")
+                .info(new Info().title("Voll.med API")
+                        .description("API Rest da aplicação Voll.med, contendo as funcionalidades de CRUD de médicos e de pacientes, além de agendamento e cancelamento de consultas")
                         .version("1"))
                 .schemaRequirement("jwt_auth", createSecurityScheme());
     }
