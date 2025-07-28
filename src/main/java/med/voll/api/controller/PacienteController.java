@@ -1,5 +1,6 @@
 package med.voll.api.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import med.voll.api.domain.paciente.PacienteCadastro;
 import med.voll.api.domain.paciente.PacienteListagem;
@@ -19,6 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("pacientes")
+@SecurityRequirement(name = "jwt_auth")
 public class PacienteController {
 
     @Autowired
